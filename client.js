@@ -47,11 +47,71 @@ console.log('array of employee data: ',  employees );
 
 
 // This function will calculate 1 employee's bonus!
-//
+// after we finish this array, make a loop that goes through the array of employees
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
+    
   
-  
-  // return new object with bonus results
+    let retName = employee.name; // make this the employee
+    let retBonusPercentage = 0
+    if(employee.reviewRating >= 2) {
+        // console.log(retBonusPercentage);
+    }
+    if(employee.reviewRating === 3){
+      retBonusPercentage += 4;
+      // console.log(retBonusPercentage);
+    }      
+    if(employee.reviewRating === 4){
+      retBonusPercentage += 6;
+        // console.log(retBonusPercentage);
+    }
+    if(employee.reviewRating === 5){
+      retBonusPercentage += 10;
+        // console.log(retBonusPercentage);
+    }
+    if (employee.employeeNumber.length === 4 ) {
+      retBonusPercentage += 5;
+      // console.log(retBonusPercentage);
+    }
 
+    if(employee.annualSalary > 65000) {
+      retBonusPercentage -= 1;
+      // console.log('annualSalary is over 65000');
+    }
+    if (retBonusPercentage > 13 ){
+      retBonusPercentage = 13;
+      // console.log('Bounus maxed out!')
+    }
+    if (retBonusPercentage < 0 ){
+      retBonusPercentage = 0;
+      // console.log('Work harder next year !')
+    }
+  let retTotalBonus = Math.round(employee.annualSalary * retBonusPercentage * .01);
+  let retTotalÇompensation = retTotalBonus + +employee.annualSalary;
+
+    
+  // return new object with bonus results
+  // make this a basic object, not an array of objects
+  return {
+    name: retName,
+    bonusPercentage: retBonusPercentage,
+    totalCompensation: retTotalÇompensation,
+    totalBonus: retTotalBonus
+  }
+  
+
+
+
+}
+// console.log(calculateIndividualEmployeeBonus(  {
+//   name: 'Atticus',
+//   employeeNumber: '2405',
+//   annualSalary: '47000',
+//   reviewRating: 3
+// }
+// ))
+
+
+for (const employee of employees) {
+  console.log(calculateIndividualEmployeeBonus(employee));
 }
