@@ -115,3 +115,9 @@ function calculateIndividualEmployeeBonus( employee ) {
 for (const employee of employees) {
   console.log(calculateIndividualEmployeeBonus(employee));
 }
+$(document).ready(function(){
+  for (const employee of employees) {
+    $(".showBonusInfo").text(`${calculateIndividualEmployeeBonus(employee).name} gets a $${calculateIndividualEmployeeBonus(employee).totalBonus} bonus`);
+  }
+
+});
